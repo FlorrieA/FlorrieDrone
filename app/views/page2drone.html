@@ -55,23 +55,37 @@
             Related content
           </h2>
           <nav role="navigation" aria-labelledby="subsection-title">
-            <ul class="govuk-list govuk-!-font-size-16">
-              <li>
-                <a class="govuk-link" href="#">
-                  Apply for drone licence
-                </a>
-              </li>
-              <li>
-                <a class="govuk-link-font-weight-bold" href="#">
-                  Commercial drone use
-                </a>
-              </li>
-              <li>
-                <a href="#" class="govuk-link govuk-!-font-weight-bold">
-                  More <span class="govuk-visually-hidden">in Subsection</span>
-                </a>
-              </li>
-            </ul>
+            {{ govukCheckboxes({
+  name: "vehicle1[vehicle-features]"
+  fieldset: {
+    legend: {
+      text: "Which of these applies to your vehicle?"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Heated seats",
+      text: "Heated seats",
+      id: "vehicle1-vehicle-features-heated-seats",
+      checked: checked("['vehicle1']['vehicle-features']", "Heated seats")
+    },
+    {
+      value: "GPS",
+      text: "GPS",
+      id: "vehicle1-vehicle-features-gps",
+      checked: checked("['vehicle1']['vehicle-features']", "GPS")
+    },
+    {
+      value: "Radio",
+      text: "Radio",
+      id: "vehicle1-vehicle-features-radio",
+      checked: checked("['vehicle1']['vehicle-features']", "Radio")
+    }
+  ]
+}) }}
           </nav>
         </aside>
 
